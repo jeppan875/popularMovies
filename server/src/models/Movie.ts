@@ -30,9 +30,11 @@ export const movieSchema = `
 
 export const contentResolvers = {
   Query: {
-    popularMovies: async (_: any, args: {page: number}) => {
+    popularMovies: async (_: any, args: { page: number }) => {
       const { page } = args
-      const popularMoviesRes = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.MOVIE_API_KEY}&language=en-US&page=${page}`)
+      const popularMoviesRes = await fetch(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.MOVIE_API_KEY}&language=en-US&page=${page}`
+      )
       const popularMoviesStr = await popularMoviesRes.text()
       const parsedPopularMovies = JSON.parse(popularMoviesStr)
       const popularMovies = parsedPopularMovies.results
