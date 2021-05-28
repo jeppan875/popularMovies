@@ -12,10 +12,10 @@ export const movieSchema = `
     original_language: String!
     title: String!
     backdrop_path: String
-    popularity: Int!
-    vote_count: Int!
+    popularity: Float!
+    vote_count: Float!
     video: Boolean!
-    vote_average: Int!
+    vote_average: Float!
   }
 
   type popularMoviePage {
