@@ -6,9 +6,7 @@ function Footer() {
   return (
     <footer style={{
       width: '100%',
-      bottom: 0,
       height: FOOTER_HEIGHT,
-      position: 'absolute',
       backgroundColor: 'black',
     }}>
       <p style={{
