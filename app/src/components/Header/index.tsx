@@ -1,11 +1,19 @@
 import React from 'react';
 
+export const HEADER_HEIGHT = '80px'
+
 function Header() {
   return (
     <header style={{
-      backgroundColor: '#2b5278',
+      backgroundColor: 'rgba(1,1,1,0.8)',
       justifyContent: 'center',
-      display: 'flex'
+      display: 'flex',
+      position: 'fixed',
+      top: 0,
+      right: 0,
+      left: 0,
+      zIndex: 1000,
+      height: HEADER_HEIGHT
     }}>
       <div style={{
         display: 'flex',
@@ -14,9 +22,12 @@ function Header() {
         maxWidth: '900px',
         flexGrow: 1
       }}>
-        <p>
+        <h1 style={{
+          color: 'white',
+          marginLeft: 20
+        }}>
           Popular Movies
-        </p>
+        </h1>
         </div>
       </header>
   );
