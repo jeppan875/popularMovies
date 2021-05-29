@@ -1,25 +1,25 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { POPULAR_MOVIES } from '../../gql/movie';
-import LoadingIndicator from '../../components/LoadingIndicator'
+import Fetching from '../../components/Fetching';
+import { IPopularMovies } from '../../interfaces';
+import MovieCard from '../../components/MovieCard';
 
 function Home() {
-  const { data, loading, error } = useQuery(POPULAR_MOVIES, {
+  const { data, loading, error } = useQuery<IPopularMovies>(POPULAR_MOVIES, {
     variables: {
       page: 1
     }
   });
   console.log(data)
   console.log(error)
-  return (
+  return (<Fetching loading={loading} error={error}>
     <div style={{
       flexGrow: 1
     }}>
-        <p>
-        hommmeeeeeeeeeee
-        </p>
-      <LoadingIndicator />
+      {data?.popularMovies.movies.map(m => <MovieCard movie={m} />)}
     </div>
+  </Fetching>
   );
 }
 

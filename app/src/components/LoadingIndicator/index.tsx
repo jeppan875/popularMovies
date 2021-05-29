@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-function Footer() {
+function LoadingIndicator() {
   return (
     <div className={styles.loader} />
   );
 }
 
-export default Footer;
+export default LoadingIndicator;
