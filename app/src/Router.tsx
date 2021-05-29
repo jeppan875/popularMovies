@@ -1,8 +1,8 @@
-import React, { useLayoutEffect } from 'react';
-import { Route, Switch, BrowserRouter, Redirect, useRouteMatch, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import Home from './pages/Home';
 import Footer from './components/Footer';
-import Header from './components/Header';
+import Header, { HEADER_HEIGHT } from './components/Header';
 
 export default function Router() {
   return (
@@ -17,16 +17,10 @@ export default function Router() {
 }
 
 function AppLayout() {
-  const { pathname } = useLocation();
-
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
   return (
-    <div style={{
-      backgroundColor: 'white',
-    }}>
+    <div>
       <Header />
+      <div style={{height: HEADER_HEIGHT}} />
       <div style={{
         minHeight: window.innerHeight,
         justifyContent: 'center',
