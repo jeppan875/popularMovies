@@ -2,7 +2,7 @@ import React from 'react';
 
 const FOOTER_HEIGHT = '80px';
 
-function Home() {
+function Footer() {
   return (
     <footer style={{
       width: '100%',
@@ -14,10 +14,10 @@ function Home() {
       <p style={{
           color: 'white'
         }}>
-          fotter
+          footer
         </p>
     </footer>
   );
 }
 
-export default Home;
+export default Footer;
