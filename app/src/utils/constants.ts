@@ -5,6 +5,6 @@ export const posterSizes = {
   '342': 342,
   '500': 500,
   '780': 780,
-}
+};
 
-export const posterBaseUrl = `https://image.tmdb.org/t/p/w`
+export const posterBaseUrl = `https://image.tmdb.org/t/p/w`;

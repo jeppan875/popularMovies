@@ -8,7 +8,7 @@ export default function Router() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
-      <Redirect exact from={`/`} to={'home'} />
+        <Redirect exact from={`/`} to={'home'} />
         <Route component={AppLayout} />
         <Redirect to={'/'} />
       </Switch>
@@ -20,22 +20,24 @@ function AppLayout() {
   return (
     <div>
       <Header />
-      <div style={{height: HEADER_HEIGHT}} />
-      <div style={{
-        minHeight: window.innerHeight,
-        justifyContent: 'center',
-        display: 'flex',
-      }}>
-        <div style={{
-          width: '100%',
-          maxWidth: '900px',
+      <div style={{ height: HEADER_HEIGHT }} />
+      <div
+        style={{
+          minHeight: window.innerHeight,
           justifyContent: 'center',
           display: 'flex',
-          flexGrow: 1
         }}>
-        <Switch>
-          <Route path="/home" exact component={Home} />
-          <Redirect to={'/'} />
+        <div
+          style={{
+            width: '100%',
+            maxWidth: '900px',
+            justifyContent: 'center',
+            display: 'flex',
+            flexGrow: 1,
+          }}>
+          <Switch>
+            <Route path="/home" exact component={Home} />
+            <Redirect to={'/'} />
           </Switch>
         </div>
       </div>

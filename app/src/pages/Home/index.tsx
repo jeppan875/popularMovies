@@ -8,18 +8,22 @@ import MovieCard from '../../components/MovieCard';
 function Home() {
   const { data, loading, error } = useQuery<IPopularMovies>(POPULAR_MOVIES, {
     variables: {
-      page: 1
-    }
+      page: 1,
+    },
   });
-  console.log(data)
-  console.log(error)
-  return (<Fetching loading={loading} error={error}>
-    <div style={{
-      flexGrow: 1
-    }}>
-      {data?.popularMovies.movies.map(m => <MovieCard movie={m} />)}
-    </div>
-  </Fetching>
+  console.log(data);
+  console.log(error);
+  return (
+    <Fetching loading={loading} error={error}>
+      <div
+        style={{
+          flexGrow: 1,
+        }}>
+        {data?.popularMovies.movies.map(m => (
+          <MovieCard movie={m} />
+        ))}
+      </div>
+    </Fetching>
   );
 }
 

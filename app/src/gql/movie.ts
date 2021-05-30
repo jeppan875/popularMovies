@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const POPULAR_MOVIES = gql`
-  query($page: Int!) {
+  query ($page: Int!) {
     popularMovies(page: $page) {
       nextPage
       movies {
