@@ -19,8 +19,8 @@ function Home() {
         style={{
           flexGrow: 1,
         }}>
-        {data?.popularMovies.movies.map(m => (
-          <MovieCard movie={m} />
+        {data?.popularMovies.movies.map((m, index) => (
+          <MovieCard movie={m} index={index} />
         ))}
       </div>
     </Fetching>

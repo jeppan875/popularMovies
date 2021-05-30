@@ -2,6 +2,8 @@
   position: relative;
   z-index: 100;
   margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .container {
@@ -9,10 +11,46 @@
   padding: 20px;
   position: relative;
   z-index: 100;
+  flex-direction: column;
 }
 
 .info {
-  margin-left: 30px;
+  margin-left: 0px;
+}
+
+.title {
+  margin-top: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.bgDrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(31, 33, 32, 0.8);
+}
+
+.countBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  padding-right: 15px;
+  background-color: rgba(31, 33, 32, 0.8);
+  border-bottom-right-radius: 30%;
+}
+
+.count {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.img {
+  width: 100%;
 }
 
 .bgImage {
@@ -20,4 +58,29 @@
   background-size: cover;
   filter: blur(20px);
   -webkit-filter: blur(20px);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+@media (min-width: 500px) {
+  .container {
+    flex-direction: row;
+  }
+  .info {
+    margin-left: 30px;
+  }
+  .title {
+    margin-top: 0px;
+    font-size: 30px;
+  }
+  .count {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .img {
+    width: auto;
+  }
 }

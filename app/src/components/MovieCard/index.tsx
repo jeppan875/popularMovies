@@ -4,7 +4,7 @@ import { IMovie } from '../../interfaces';
 import { posterBaseUrl, posterSizes } from '../../utils/constants';
 import useWindowSize from '../../hooks/useWindowSize';
 
-function MovieCard({ movie }: { movie: IMovie }) {
+function MovieCard({ movie, index }: { movie: IMovie; index: number }) {
   const windowSize = useWindowSize();
   const width = windowSize.width ? windowSize.width : 0;
   const image = `${posterBaseUrl}${posterSizes[width < 750 ? '185' : '342']}${
@@ -13,36 +13,24 @@ function MovieCard({ movie }: { movie: IMovie }) {
   return (
     <div className={styles.root}>
       <div className={styles.container}>
-        <img src={image} alt="poster" />
+        <div style={{ position: 'relative' }}>
+          <img className={styles.img} src={image} alt="poster" />
+          <div className={styles.countBg}>
+            <p className={styles.count}>{index + 1}</p>
+          </div>
+        </div>
         <div className={styles.info}>
-          <h3
-            style={{
-              color: 'white',
-              fontSize: 30,
-              marginTop: 0,
-            }}>
-            {movie.title}
-          </h3>
-          <p
-            style={{
-              fontSize: 16,
-              color: 'white',
-            }}>
-            {movie.overview}
-          </p>
+          <h3 className={styles.title}>{movie.title}</h3>
+          <p>{movie.overview}</p>
         </div>
       </div>
       <div
         className={styles.bgImage}
         style={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          right: 0,
-          left: 0,
           backgroundImage: `url(${image})`,
         }}
       />
+      <div className={styles.bgDrop} />
     </div>
   );
 }
