@@ -1,0 +1,12 @@
+.page {
+  justify-content: center;
+  display: flex;
+}
+
+.innerPage {
+  width: 100%;
+  max-width: 900px;
+  justify-content: center;
+  display: flex;
+  flex-grow: 1;
+}

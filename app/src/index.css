@@ -26,12 +26,16 @@ p {
   font-size: 16px;
 }
 
-.headerGutter {
+.topGutter {
   height: 50px;
 }
 
+.bottomGutter {
+  height: 40px;
+}
+
 @media (min-width: 750px) {
-  .headerGutter {
+  .topGutter {
     height: 80px;
   }
 }

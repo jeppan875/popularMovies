@@ -1,11 +1,12 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
-import Home from './pages/Home';
-import Header from './components/Header';
+import Home from '../pages/Home';
+import Header from '../components/Header';
+import styles from './styles.module.css';
 
 export default function Router() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <Switch>
         <Redirect exact from={`/`} to={'home'} />
         <Route component={AppLayout} />
@@ -19,28 +20,20 @@ function AppLayout() {
   return (
     <div>
       <Header />
-      <div className="headerGutter" />
+      <div className="topGutter" />
       <div
+        className={styles.page}
         style={{
-          minHeight: window.innerHeight,
-          justifyContent: 'center',
-          display: 'flex',
+          minHeight: window.innerHeight - 120,
         }}>
-        <div
-          style={{
-            width: '100%',
-            maxWidth: '900px',
-            justifyContent: 'center',
-            display: 'flex',
-            flexGrow: 1,
-          }}>
+        <div className={styles.innerPage}>
           <Switch>
             <Route path="/home" exact component={Home} />
             <Redirect to={'/'} />
           </Switch>
         </div>
       </div>
-      <div style={{ height: 40 }} />
+      <div className="bottomGutter" />
     </div>
   );
 }
