@@ -4,8 +4,6 @@ import {
   ApolloProvider,
   InMemoryCache,
   createHttpLink,
-  ApolloLink,
-  concat,
 } from '@apollo/client';
 
 const httpLink = createHttpLink({
@@ -14,7 +12,23 @@ const httpLink = createHttpLink({
 });
 
 const client = new ApolloClient({
-  cache: new InMemoryCache({}),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          popularMovies: {
+            keyArgs: false,
+            merge(existing = { movies: [] }, incoming) {
+              return {
+                ...incoming,
+                movies: [...existing.movies, ...incoming.movies],
+              };
+            },
+          },
+        },
+      },
+    },
+  }),
   link: httpLink,
 });
 
