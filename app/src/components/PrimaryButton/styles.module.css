@@ -1,0 +1,23 @@
+.button {
+  background-color: #5013ff;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position: relative;
+  -webkit-box-shadow: 1px 3px 20px -3px rgba(80, 19, 255, 0.48);
+  box-shadow: 1px 3px 20px -3px rgba(80, 19, 255, 0.48);
+  border-radius: 5px;
+}
+
+.centerAbsolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
