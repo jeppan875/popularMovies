@@ -15,9 +15,6 @@ function MovieCard({ movie, index }: { movie: IMovie; index: number }) {
       <div className={styles.container}>
         <div style={{ position: 'relative' }}>
           <img className={styles.img} src={image} alt="poster" />
-          <div className={styles.countBg}>
-            <p className={styles.count}>{index + 1}</p>
-          </div>
         </div>
         <div className={styles.info}>
           <h3 className={styles.title}>{movie.title}</h3>
@@ -30,6 +27,9 @@ function MovieCard({ movie, index }: { movie: IMovie; index: number }) {
           backgroundImage: `url(${image})`,
         }}
       />
+      <div className={styles.countBg}>
+        <p className={styles.count}>{index + 1}</p>
+      </div>
       <div className={styles.bgDrop} />
     </div>
   );
