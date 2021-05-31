@@ -6,7 +6,7 @@ export const movieSchema = `
     poster_path: String
     adult: Boolean!
     overview: String!
-    release_date: String!
+    release_date: String
     genre_ids: [Int]!
     original_title: String!
     original_language: String!
@@ -38,7 +38,7 @@ export const contentResolvers = {
       const popularMoviesStr = await popularMoviesRes.text()
       const parsedPopularMovies = JSON.parse(popularMoviesStr)
       const popularMovies = parsedPopularMovies.results
-      const nextPage = page === 5 ? null : page + 1
+      const nextPage = page + 1
       return {
         movies: popularMovies,
         nextPage: nextPage
