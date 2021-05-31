@@ -7,9 +7,9 @@ import useWindowSize from '../../hooks/useWindowSize';
 function MovieCard({ movie, index }: { movie: IMovie; index: number }) {
   const windowSize = useWindowSize();
   const width = windowSize.width ? windowSize.width : 0;
-  const image = `${posterBaseUrl}${posterSizes[width < 750 ? '185' : '342']}${
-    movie.poster_path
-  }`;
+  const image = `${posterBaseUrl}${
+    posterSizes[500 > width || width < 750 ? '185' : '342']
+  }${movie.poster_path}`;
   return (
     <div className={styles.root}>
       <div className={styles.container}>
