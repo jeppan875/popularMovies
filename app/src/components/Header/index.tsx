@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-export const HEADER_HEIGHT = '80px';
-
 function Header() {
   return (
     <header className={styles.root}>

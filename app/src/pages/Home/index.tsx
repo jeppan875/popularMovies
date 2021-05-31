@@ -19,6 +19,7 @@ function Home() {
     },
   );
 
+  const nextPage = data?.popularMovies.nextPage || 1;
   return (
     <Fetching loading={loading} error={error}>
       <div
@@ -28,34 +29,36 @@ function Home() {
         {data?.popularMovies.movies.map((m, index) => (
           <MovieCard key={m.id} movie={m} index={index} />
         ))}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginTop: '40px',
-            marginBottom: '40px',
-          }}>
-          <PrimaryButton
-            loading={fetchMoreLoading}
-            text={initialFetch ? 'Fetch Popular Movies' : 'Fetch more movies'}
-            onClick={() => {
-              if (initialFetch) {
-                setinitialFetch(false);
-              } else {
-                setFetchmoreLoading(true);
-                fetchMore({
-                  query: POPULAR_MOVIES,
-                  variables: {
-                    page: data?.popularMovies.nextPage,
-                  },
-                }).then(() => {
-                  setFetchmoreLoading(false);
-                });
-              }
-            }}
-          />
-        </div>
+        {nextPage <= 5 && (
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: '40px',
+              marginBottom: '40px',
+            }}>
+            <PrimaryButton
+              loading={fetchMoreLoading}
+              text={initialFetch ? 'Fetch Popular Movies' : 'Fetch more movies'}
+              onClick={() => {
+                if (initialFetch) {
+                  setinitialFetch(false);
+                } else {
+                  setFetchmoreLoading(true);
+                  fetchMore({
+                    query: POPULAR_MOVIES,
+                    variables: {
+                      page: nextPage,
+                    },
+                  }).then(() => {
+                    setFetchmoreLoading(false);
+                  });
+                }
+              }}
+            />
+          </div>
+        )}
       </div>
     </Fetching>
   );

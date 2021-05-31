@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import Home from './pages/Home';
-import Footer from './components/Footer';
-import Header, { HEADER_HEIGHT } from './components/Header';
+import Header from './components/Header';
 
 export default function Router() {
   return (
@@ -41,7 +40,7 @@ function AppLayout() {
           </Switch>
         </div>
       </div>
-      <Footer />
+      <div style={{ height: 40 }} />
     </div>
   );
 }
