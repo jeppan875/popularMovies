@@ -8,10 +8,8 @@
 }
 
 .loader {
-  width: 26px;
-  height: 26px;
   color: white;
-  border: 2px tomato solid;
+  border: 2px white solid;
   border-radius: 50%;
   border-left-color: transparent;
   animation-name: spinner;

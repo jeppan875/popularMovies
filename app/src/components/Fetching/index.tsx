@@ -14,7 +14,7 @@ function Fetching({
   if (loading) {
     return (
       <div className={styles.container}>
-        <LoadingIndicator />
+        <LoadingIndicator size={40} />
       </div>
     );
   }
