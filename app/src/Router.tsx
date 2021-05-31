@@ -20,7 +20,7 @@ function AppLayout() {
   return (
     <div>
       <Header />
-      <div style={{ height: HEADER_HEIGHT }} />
+      <div className="headerGutter" />
       <div
         style={{
           minHeight: window.innerHeight,

@@ -1,0 +1,36 @@
+.root {
+  background-color: rgba(1, 1, 1, 0.8);
+  justify-content: center;
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  height: 50px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  max-width: 900px;
+  flex-grow: 1;
+}
+
+.title {
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+@media (min-width: 750px) {
+  .header {
+    height: 80px;
+  }
+  .root {
+    height: 80px;
+  }
+  .title {
+    font-size: 30px;
+  }
+}
